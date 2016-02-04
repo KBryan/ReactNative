@@ -54,7 +54,7 @@ var MopalsApp = React.createClass({
 var styles = StyleSheet.create({
     container: {
       flex:1,
-      flexDirection:'column'
+      flexDirection:'row'
     },
     welcome: {
       fontSize:25,
