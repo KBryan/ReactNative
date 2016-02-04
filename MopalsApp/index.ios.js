@@ -5,37 +5,55 @@
 'use strict'
 
 var React = require('react-native')
+var CompanyProperty = require('./App/Components/CompanyProperty')
 var {
   AppRegistry,
   StyleSheet,
   Text,
   View,
   NavigatorIOS,
+  Image,
+  TouchableHighlight   
 } = React;
 
 var mainView = React.createClass({
   render:function() {
     return (
-      <NavigatorIOS
-        barTintColor='#48BBEC'
-        titleTextColor ='#FFFFFF'
-        style={styles.navigator}
-        initialRoute={{
-          title: 'Mopals',
-          component: MopalsApp
-       }} />
-     
-     );
-  },
+      <NavigatorIOS barTintColor='#48BBEC' titleTextColor= "#FFFFFF"
+style={styles.navigator} initialRoute={{
+        title: 'MopalsApp',
+        component: home
+      }}/>
+); },
 });
-var Home = React.createClass({
-  render:function() {
+
+var home = React.createClass({
+   _handleListProperty: function() {
+    this.props.navigator.push({
+      title: "List Properties",
+      component: CompanyProperty
+    })
+},
+  render: function() {
     return (
       <View style={styles.container}>
-          <View style={styles.topBox} />
-          <View style={styles.bottomBox} />
-      </View>
-      );
+      <View style={styles.topBox} />
+      <View style={styles.bottomBox} />
+      <View style={styles.topBox} >
+      <TouchableHighlight
+      style={styles.button}
+      onPress= {this._handleListProperty }
+      underlayColor='#99d9f4'
+      >
+        <Text style={styles.buttonText}>List properties</Text>
+     </TouchableHighlight>
+     <TouchableHighlight style={styles.button}
+       underlayColor='#99d9f4'>
+        <Text style={styles.buttonText}>Add House</Text>
+    </TouchableHighlight>
+    </View>
+   </View>
+    ); 
   }
 });
 var MopalsApp = React.createClass({
@@ -64,12 +82,30 @@ var styles = StyleSheet.create({
       flex:1
     },
     topBox: {
-      flex:2,
+      flex:1,
       backgroundColor:'#CCE5FF'
     },
     bottomBox: {
       flex:1,
       backgroundColor:'#FFFFCC'
-    }
+    },
+    image: {
+     width: 70,
+     height: 70 
+   },button: {
+      flex: 1,
+      backgroundColor: '#48BBEC',
+      borderColor: '#48BBEC',
+      borderWidth: 1,
+       borderRadius: 8,
+      alignSelf: 'stretch',
+      justifyContent: 'center',
+      margin: 10
+    },
+      buttonText: {
+      fontSize: 18,
+      color: 'white',
+      alignSelf: 'center'
+}
 });
 AppRegistry.registerComponent('MopalsApp', () => mainView);
