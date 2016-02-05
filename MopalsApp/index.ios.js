@@ -20,7 +20,7 @@ var mainView = React.createClass({
   render:function() {
     return (
       <NavigatorIOS barTintColor='#48BBEC' titleTextColor= "#FFFFFF"
-style={styles.navigator} initialRoute={{
+        style={styles.navigator} initialRoute={{
         title: 'MopalsApp',
         component: home
       }}/>

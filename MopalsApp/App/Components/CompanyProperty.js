@@ -4,10 +4,10 @@ var {
 	Image,
 	StyleSheet,
 	Text,
-	View
+	View,
+	ListView
 } = React;
-var MOCK_DATA = [
-				{name:'Kwame Bryan',address:'27 Kersey Cres',images:{thumbnail:'http://hmp.me/ol5'}},
+var MOCK_DATA = [{name:'Kwame Bryan',address:'27 Kersey Cres',images:{thumbnail:'http://hmp.me/ol5'}},
 ];
 var CompanyProperty = React.createClass({
 	render:function() {
